@@ -1,0 +1,14 @@
+{
+  "name": "radar-ofertas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Radar Bebê / Radar Beleza — agregador diário de ofertas com links de afiliado",
+  "scripts": {
+    "crawl": "node src/pipeline.js",
+    "build": "node src/build.js",
+    "daily": "node src/pipeline.js && node src/build.js",
+    "serve": "node src/server.js",
+    "test": "node --test test/"
+  },
+  "dependencies": { "playwright": "*" }
+}

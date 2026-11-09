@@ -1,0 +1,305 @@
+.apot {
+  --bg:        #EDEAE0;     /* warm off-white / linen */
+  --bg-2:      #E2DDCD;
+  --paper:     #F6F3E9;
+  --ink:       #2A2D26;     /* deep moss */
+  --ink-2:     #4F5448;
+  --ink-3:     #8B8F82;
+  --rule:      rgba(42,45,38,0.18);
+  --rule-soft: rgba(42,45,38,0.09);
+  --sage:      #5C6B4F;     /* deep sage */
+  --sage-2:    #7E8B6F;
+  --clay:      #A8643F;     /* warm clay accent */
+  --serif:     'Fraunces', 'Cormorant Garamond', serif;
+  --sans:      'Inter Tight', 'Inter', system-ui, sans-serif;
+  --mono:      'JetBrains Mono', ui-monospace, monospace;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  width: 1440px;
+  min-height: 1100px;
+}
+.apot *, .apot *::before, .apot *::after { box-sizing: border-box; }
+.apot a { color: inherit; text-decoration: none; }
+.apot button { font-family: inherit; cursor: pointer; }
+
+/* HEADER */
+.apot .hdr {
+  background: var(--sage);
+  color: var(--paper);
+  padding: 14px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+}
+.apot .hdr-left { display: flex; align-items: center; gap: 18px; }
+.apot .hdr-mark {
+  font-family: var(--serif); font-weight: 400; font-size: 18px;
+  letter-spacing: -0.005em; font-variation-settings: "SOFT" 100, "WONK" 1;
+  text-transform: none; letter-spacing: 0.005em;
+}
+.apot .hdr-right { display: flex; gap: 22px; align-items: center; opacity: 0.85; }
+.apot .hdr-right a { transition: opacity .2s; }
+.apot .hdr-right a:hover { opacity: 1; }
+
+/* BRAND BAND */
+.apot .brand {
+  background: var(--bg-2);
+  padding: 56px 40px 44px;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+}
+.apot .brand-eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--sage);
+  margin-bottom: 18px;
+}
+.apot .brand-title {
+  font-family: var(--serif); font-weight: 350;
+  font-size: 78px; line-height: 0.95; letter-spacing: -0.025em;
+  color: var(--ink); font-variation-settings: "SOFT" 30, "WONK" 0;
+}
+.apot .brand-title em {
+  font-style: italic; color: var(--sage);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+.apot .brand-sub {
+  margin-top: 18px; font-size: 14px; color: var(--ink-2);
+  max-width: 540px; margin-left: auto; margin-right: auto;
+  line-height: 1.6;
+}
+.apot .brand-orn {
+  margin: 28px auto 0;
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  color: var(--sage);
+}
+.apot .brand-orn-line { width: 60px; height: 1px; background: currentColor; }
+.apot .brand-orn-mark {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+/* CATEGORY RAIL — vertical-feeling pill row with botanical icons */
+.apot .rail {
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  padding: 22px 40px;
+}
+.apot .rail-inner {
+  max-width: 1320px; margin: 0 auto;
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+}
+.apot .cat {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--sans); font-size: 12.5px; font-weight: 500;
+  color: var(--ink-2); transition: all .22s;
+  letter-spacing: 0.005em;
+}
+.apot .cat:hover { border-color: var(--sage); color: var(--ink); }
+.apot .cat.is-active {
+  background: var(--ink); color: var(--paper); border-color: var(--ink);
+}
+.apot .cat-glyph {
+  width: 14px; height: 14px; display: inline-flex;
+  align-items: center; justify-content: center;
+}
+
+/* CONTROL */
+.apot .ctrl {
+  max-width: 1320px; margin: 0 auto;
+  padding: 32px 40px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.apot .ctrl-l { display: flex; align-items: baseline; gap: 14px; }
+.apot .ctrl-l .num {
+  font-family: var(--serif); font-style: italic;
+  font-size: 32px; color: var(--sage); font-weight: 400;
+}
+.apot .ctrl-l .lbl {
+  font-family: var(--sans); font-size: 13px; color: var(--ink-2);
+}
+.apot .ctrl-r {
+  display: flex; gap: 6px; padding: 4px;
+  background: var(--paper); border-radius: 999px;
+  border: 1px solid var(--rule);
+}
+.apot .sort-btn {
+  background: none; border: none; padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  color: var(--ink-3); transition: all .2s;
+}
+.apot .sort-btn:hover { color: var(--ink); }
+.apot .sort-btn.is-active {
+  background: var(--sage); color: var(--paper);
+}
+
+/* GRID */
+.apot .feed {
+  max-width: 1320px; margin: 0 auto;
+  padding: 12px 40px 60px;
+}
+.apot .grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* CARD */
+.apot .card {
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: all .3s ease;
+}
+.apot .card:hover {
+  border-color: var(--sage);
+  transform: translateY(-3px);
+  box-shadow: 0 24px 48px rgba(42,45,38,0.08);
+}
+
+.apot .card-img-wrap {
+  position: relative; aspect-ratio: 1.15 / 1;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(92,107,79,0.12), transparent 70%),
+    linear-gradient(180deg, var(--paper), #ECE7D8);
+  border-bottom: 1px solid var(--rule-soft);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.apot .card-img {
+  width: 70%; height: 70%; object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 16px 28px rgba(42,45,38,0.22));
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+.apot .card:hover .card-img { transform: scale(1.06); }
+
+.apot .card-ph {
+  width: 60%; height: 60%;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 7px, rgba(92,107,79,0.08) 7px 8px);
+  border: 1px solid rgba(92,107,79,0.2);
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+}
+.apot .card-ph span {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--sage);
+}
+
+/* Botanical corner ornament on each image area */
+.apot .card-orn {
+  position: absolute; top: 12px; right: 12px;
+  width: 22px; height: 22px; color: var(--sage);
+  opacity: 0.6;
+}
+.apot .disc {
+  position: absolute; bottom: 12px; left: 12px;
+  background: var(--ink); color: var(--paper);
+  padding: 5px 10px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em;
+  border-radius: 2px;
+}
+.apot .disc b { color: #DFD7B8; font-weight: 500; }
+.apot .new {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--clay); color: var(--paper);
+  padding: 4px 9px;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em;
+  text-transform: uppercase; border-radius: 2px;
+}
+
+/* CARD BODY */
+.apot .card-body {
+  padding: 20px 22px 22px;
+  display: flex; flex-direction: column; gap: 12px; flex: 1;
+}
+.apot .card-tax {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.apot .card-tax .ix { color: var(--sage); font-weight: 500; }
+.apot .card-name {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 19px; line-height: 1.25; letter-spacing: -0.005em;
+  font-variation-settings: "SOFT" 30;
+  color: var(--ink); text-wrap: pretty; flex: 1;
+}
+.apot .price-row {
+  display: flex; align-items: baseline; gap: 10px;
+  padding-top: 8px; border-top: 1px solid var(--rule-soft);
+  margin-top: 4px;
+}
+.apot .price-now {
+  font-family: var(--serif); font-weight: 450;
+  font-size: 24px; line-height: 1; letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.apot .price-orig {
+  font-family: var(--sans); font-size: 12.5px; color: var(--ink-3);
+  text-decoration: line-through;
+}
+.apot .price-spacer { flex: 1; }
+.apot .card-cta {
+  background: none; border: 1px solid var(--ink); color: var(--ink);
+  padding: 10px 18px; border-radius: 999px;
+  font-family: var(--sans); font-size: 11.5px; font-weight: 500;
+  letter-spacing: 0.06em;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .22s;
+  align-self: flex-start;
+}
+.apot .card-cta:hover {
+  background: var(--ink); color: var(--paper);
+}
+.apot .card-cta .arr { transition: transform .25s; }
+.apot .card-cta:hover .arr { transform: translateX(3px); }
+
+/* FOOTER */
+.apot .foot {
+  border-top: 1px solid var(--rule);
+  background: var(--bg-2);
+  padding: 44px 40px 32px;
+}
+.apot .foot-inner {
+  max-width: 1320px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px; align-items: start;
+}
+.apot .foot-brand h3 {
+  font-family: var(--serif); font-weight: 400; font-style: italic;
+  font-size: 32px; color: var(--ink); letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+.apot .foot-brand p {
+  font-size: 13px; color: var(--ink-2); max-width: 320px; line-height: 1.65;
+}
+.apot .foot-col h4 {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage);
+  margin-bottom: 14px;
+}
+.apot .foot-col ul { list-style: none; padding: 0; margin: 0; }
+.apot .foot-col li { margin-bottom: 8px; }
+.apot .foot-col a {
+  font-size: 13px; color: var(--ink-2); transition: color .2s;
+}
+.apot .foot-col a:hover { color: var(--sage); }
+.apot .foot-bottom {
+  max-width: 1320px; margin: 32px auto 0; padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em;
+  color: var(--ink-3);
+}

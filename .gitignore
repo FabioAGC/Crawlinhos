@@ -1,0 +1,10 @@
+node_modules/
+.env
+dist/
+data/clicks.jsonl
+data/*.log
+data/shot*.png
+data/shots/
+data/ml-token.json
+data/links.json
+_src/

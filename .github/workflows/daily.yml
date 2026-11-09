@@ -1,0 +1,40 @@
+# Alternativa ao crontab: coleta diária no GitHub Actions e publicação estática (GitHub Pages).
+# Funciona bem com as fontes por API (Shopee, Mercado Livre). Fontes por página podem ser
+# bloqueadas em IPs de datacenter como os do Actions.
+name: coleta-diaria
+on:
+  schedule:
+    - cron: '0 9 * * *' # 06:00 em Brasília
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  coleta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install && npx playwright install --with-deps chromium
+      - run: npm run daily
+        env:
+          LINK_MODE: direct
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
+          ML_CLIENT_ID: ${{ secrets.ML_CLIENT_ID }}
+          ML_CLIENT_SECRET: ${{ secrets.ML_CLIENT_SECRET }}
+          ML_REFRESH_TOKEN: ${{ secrets.ML_REFRESH_TOKEN }}
+          ML_AFFILIATE_TEMPLATE: ${{ secrets.ML_AFFILIATE_TEMPLATE }}
+          SHOPEE_APP_ID: ${{ secrets.SHOPEE_APP_ID }}
+          SHOPEE_SECRET: ${{ secrets.SHOPEE_SECRET }}
+          MAGALU_STORE: ${{ secrets.MAGALU_STORE }}
+      - name: Guardar dados e histórico de preço
+        run: |
+          git config user.name "radar-bot" && git config user.email "radar-bot@users.noreply.github.com"
+          git add data/products data/history.json data/status.json
+          git commit -m "coleta $(date -u +%F)" || echo "sem mudanças"
+          git push
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: dist }
+      - uses: actions/deploy-pages@v4
