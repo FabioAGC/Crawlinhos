@@ -3,26 +3,171 @@
     "theme": "acon",
     "title": "Radar Bebê",
     "categories": [
-      { "id": "higiene", "label": "Banho & Higiene", "queries": ["sabonete liquido bebe", "shampoo bebe"] },
-      { "id": "fraldas", "label": "Fraldas & Lenços", "queries": ["fralda descartavel", "lenço umedecido bebe"] },
-      { "id": "alimentacao", "label": "Alimentação", "queries": ["mamadeira anti colica", "chupeta bebe"] },
-      { "id": "sono", "label": "Sono & Quarto", "queries": ["manta bebe algodao", "baba eletronica"] },
-      { "id": "roupas", "label": "Roupinhas", "queries": ["body bebe kit"] },
-      { "id": "brinquedos", "label": "Brinquedos", "queries": ["tapete de atividades bebe", "mordedor bebe"] },
-      { "id": "passeio", "label": "Passeio", "queries": ["carrinho de bebe", "bebe conforto"] }
+      {
+        "id": "higiene",
+        "label": "Banho & Higiene",
+        "queries": [
+          "sabonete liquido bebe",
+          "shampoo bebe"
+        ]
+      },
+      {
+        "id": "fraldas",
+        "label": "Fraldas & Lenços",
+        "queries": [
+          "fralda descartavel",
+          "lenço umedecido bebe"
+        ]
+      },
+      {
+        "id": "alimentacao",
+        "label": "Alimentação",
+        "queries": [
+          "mamadeira anti colica",
+          "chupeta bebe"
+        ]
+      },
+      {
+        "id": "sono",
+        "label": "Sono & Quarto",
+        "queries": [
+          "manta bebe algodao",
+          "baba eletronica"
+        ]
+      },
+      {
+        "id": "roupas",
+        "label": "Roupinhas",
+        "queries": [
+          "body bebe kit"
+        ]
+      },
+      {
+        "id": "brinquedos",
+        "label": "Brinquedos",
+        "queries": [
+          "tapete de atividades bebe",
+          "mordedor bebe"
+        ],
+        "exclude": [
+          "tatame",
+          "emborrachado"
+        ]
+      },
+      {
+        "id": "passeio",
+        "label": "Passeio",
+        "queries": [
+          "carrinho de bebe",
+          "bebe conforto"
+        ]
+      }
+    ],
+    "exclude": [
+      "geriatrica",
+      "geriatrico",
+      "adulto",
+      "adultos",
+      "incontinencia",
+      "bigfral",
+      "plenitud",
+      "pet",
+      "para cachorro",
+      "para caes",
+      "para gatos"
     ]
   },
   "beleza": {
     "theme": "apot",
     "title": "Radar Beleza",
     "categories": [
-      { "id": "perfumes", "label": "Perfumes", "queries": ["perfume feminino eau de parfum", "perfume masculino eau de toilette"] },
-      { "id": "maquiagem", "label": "Maquiagem", "queries": ["base maquiagem", "mascara de cilios"] },
-      { "id": "skincare", "label": "Skincare", "queries": ["serum facial vitamina c", "protetor solar facial"] },
-      { "id": "cabelos", "label": "Cabelos", "queries": ["mascara de hidratação capilar", "kit shampoo condicionador"] },
-      { "id": "corpo", "label": "Corpo & Banho", "queries": ["hidratante corporal"] },
-      { "id": "unhas", "label": "Unhas", "queries": ["esmalte kit"] },
-      { "id": "kits", "label": "Kits & Presentes", "queries": ["kit presente perfume"] }
+      {
+        "id": "perfumes",
+        "label": "Perfumes",
+        "queries": [
+          "perfume feminino eau de parfum",
+          "perfume masculino eau de toilette"
+        ],
+        "exclude": [
+          "decant",
+          "amostra"
+        ]
+      },
+      {
+        "id": "maquiagem",
+        "label": "Maquiagem",
+        "queries": [
+          "base maquiagem",
+          "mascara de cilios"
+        ],
+        "exclude": [
+          "capilar",
+          "cabelo",
+          "cabelos",
+          "unha",
+          "unhas"
+        ]
+      },
+      {
+        "id": "skincare",
+        "label": "Skincare",
+        "queries": [
+          "serum facial vitamina c",
+          "protetor solar facial"
+        ],
+        "exclude": [
+          "capilar",
+          "cabelo",
+          "cabelos",
+          "corporal"
+        ]
+      },
+      {
+        "id": "cabelos",
+        "label": "Cabelos",
+        "queries": [
+          "mascara de hidratação capilar",
+          "kit shampoo condicionador"
+        ],
+        "exclude": [
+          "cilios",
+          "facial"
+        ]
+      },
+      {
+        "id": "corpo",
+        "label": "Corpo & Banho",
+        "queries": [
+          "hidratante corporal"
+        ],
+        "exclude": [
+          "facial",
+          "capilar"
+        ]
+      },
+      {
+        "id": "unhas",
+        "label": "Unhas",
+        "queries": [
+          "esmalte kit"
+        ]
+      },
+      {
+        "id": "kits",
+        "label": "Kits & Presentes",
+        "queries": [
+          "kit presente perfume"
+        ]
+      }
+    ],
+    "exclude": [
+      "infantil",
+      "bebe",
+      "bebes",
+      "kids",
+      "pet",
+      "para cachorro",
+      "para caes"
     ]
   }
 }

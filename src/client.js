@@ -14,30 +14,41 @@
     desconto: function (a, b) { return num(b, 'disc') - num(a, 'disc'); },
     popularidade: function (a, b) { return num(b, 'pop') - num(a, 'pop'); }
   };
-  var norm = function (s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); };
+  var norm = function (s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+  // Ordenação estável: empate mantém a ordem original (destaque) em vez de depender do estado anterior do DOM.
+  cards.forEach(function (c, i) { c._ix = i; });
 
   function apply() {
     var q = norm(state.q.trim()), shown = 0;
-    cards.slice().sort(sorters[state.sort] || sorters.destaque).forEach(function (c) {
+    var cmp = sorters[state.sort] || sorters.destaque;
+    var frag = document.createDocumentFragment();
+    cards.slice().sort(function (a, b) { return cmp(a, b) || a._ix - b._ix; }).forEach(function (c) {
       var ok = (state.cat === 'all' || c.getAttribute('data-cat') === state.cat) &&
         (!state.store || c.getAttribute('data-store') === state.store) &&
         (!q || norm(c.getAttribute('data-title')).indexOf(q) > -1);
       c.hidden = !ok;
       if (ok) shown++;
-      grid.appendChild(c);
+      frag.appendChild(c);
     });
+    grid.appendChild(frag);
     root.querySelectorAll('[data-count]').forEach(function (e) { e.textContent = shown; });
+    var act = null;
     root.querySelectorAll('[data-cat-btn]').forEach(function (b) {
-      b.classList.toggle('is-active', b.getAttribute('data-cat-btn') === state.cat);
+      var on = b.getAttribute('data-cat-btn') === state.cat;
+      if (on) act = b;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     root.querySelectorAll('[data-sort-btn]').forEach(function (b) {
-      b.classList.toggle('is-active', b.getAttribute('data-sort-btn') === state.sort);
+      var on = b.getAttribute('data-sort-btn') === state.sort;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
+    var catName = state.cat === 'all' ? '' : act ? act.textContent.trim() : state.cat;
     var lab = root.querySelector('[data-cat-label]');
-    if (lab) {
-      var act = root.querySelector('[data-cat-btn="' + state.cat + '"]');
-      lab.textContent = (state.cat === 'all' ? 'Todas categorias' : act ? act.textContent.trim() : state.cat) + (state.store ? ' · ' + state.store : '');
-    }
+    if (lab) lab.textContent = (catName || 'Todas categorias') + (state.store ? ' · ' + state.store : '');
+    var suf = root.querySelector('[data-cat-label-suffix]');
+    if (suf) suf.textContent = (catName ? ' · ' + catName : '') + (state.store ? ' · ' + state.store : '');
     var empty = root.querySelector('[data-empty]');
     if (empty) empty.hidden = shown > 0;
   }
@@ -47,7 +58,7 @@
     if (!t || !root.contains(t)) return;
     if (t.hasAttribute('data-cat-btn')) { state.cat = t.getAttribute('data-cat-btn'); if (state.cat === 'all') state.store = ''; }
     else if (t.hasAttribute('data-sort-btn')) state.sort = t.getAttribute('data-sort-btn');
-    else if (t.hasAttribute('data-cat-link')) state.cat = t.getAttribute('data-cat-link');
+    else if (t.hasAttribute('data-cat-link')) { state.cat = t.getAttribute('data-cat-link'); state.store = ''; }
     else if (t.tagName === 'A' && t.hasAttribute('data-store')) {
       ev.preventDefault();
       state.store = t.getAttribute('data-store'); state.cat = 'all';

@@ -1,0 +1,15 @@
+{
+  "_fixture": "NAO E RESPOSTA REAL. Escrito a mao, de memoria, no formato de GET /products/{id} (catalogo, com buy_box_winner). A confirmar com credenciais reais.",
+  "id": "MLB19000001",
+  "status": "active",
+  "name": "Fralda Catalogo G",
+  "permalink": "https://www.mercadolivre.com.br/fralda-catalogo-g/p/MLB19000001",
+  "pictures": [{ "id": "777777-MLA1", "url": "https://http2.mlstatic.com/D_NQ_NP_777777-MLA1-F.jpg" }],
+  "buy_box_winner": {
+    "item_id": "MLB9999999999",
+    "currency_id": "BRL",
+    "price": 59.9,
+    "original_price": 74.9,
+    "shipping": { "free_shipping": true }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "_fixture": "NAO E RESPOSTA REAL. Escrito a mao no formato documentado de GET /sites/MLB/search (developers.mercadolivre.com.br). A API respondeu 403 sem token neste servidor, entao nao houve como capturar uma resposta verdadeira.",
+  "site_id": "MLB",
+  "query": "fralda",
+  "paging": { "total": 1234, "primary_results": 1000, "offset": 0, "limit": 5 },
+  "results": [
+    {
+      "id": "MLB1111111111",
+      "title": "Fralda  Infantil Tamanho G 80 Unidades",
+      "condition": "new",
+      "permalink": "https://produto.mercadolivre.com.br/MLB-1111111111-fralda-infantil-g-80-unidades-_JM",
+      "thumbnail": "http://http2.mlstatic.com/D_111111-MLB11111111111_012025-I.jpg",
+      "currency_id": "BRL",
+      "price": 79.9,
+      "original_price": 99.9,
+      "sale_price": { "price_id": "", "amount": 79.9, "regular_amount": 99.9, "currency_id": "BRL" },
+      "available_quantity": 50,
+      "shipping": { "free_shipping": true, "logistic_type": "fulfillment" }
+    },
+    {
+      "id": "MLB2222222222",
+      "title": "Lenco Umedecido 96 Unidades",
+      "permalink": "https://produto.mercadolivre.com.br/MLB-2222222222-lenco-umedecido-_JM",
+      "thumbnail": "http://http2.mlstatic.com/D_222222-MLB22222222222_012025-I.webp",
+      "currency_id": "BRL",
+      "price": 12.5,
+      "original_price": null,
+      "sold_quantity": 500,
+      "shipping": { "free_shipping": false }
+    },
+    {
+      "id": "MLB3333333333",
+      "title": "Pomada so com sale_price",
+      "permalink": "https://www.mercadolivre.com.br/pomada/p/MLB3333333333",
+      "thumbnail": "https://http2.mlstatic.com/D_333333-MLA33333333333_012025-I.jpg",
+      "currency_id": "BRL",
+      "price": null,
+      "sale_price": { "amount": 30, "regular_amount": 40, "currency_id": "BRL" }
+    },
+    { "id": "MLB4444444444", "title": "Sem preco", "permalink": "https://produto.mercadolivre.com.br/MLB-4444444444-_JM", "price": null },
+    { "id": "MLB5555555555", "title": "Sem link", "price": 10 }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "_fixture": "NAO E RESPOSTA REAL. Escrito a mao, de memoria, no formato de GET /products/search?status=active&site_id=MLB&q= (catalogo). A confirmar com credenciais reais.",
+  "keywords": "fralda",
+  "paging": { "total": 2, "limit": 2, "offset": 0 },
+  "results": [
+    { "id": "MLB19000001", "status": "active", "domain_id": "MLB-DIAPERS", "name": "Fralda Catalogo G", "pictures": [{ "id": "777777-MLA1", "url": "https://http2.mlstatic.com/D_NQ_NP_777777-MLA1-F.jpg" }] },
+    { "id": "MLB19000002", "status": "active", "domain_id": "MLB-DIAPERS", "name": "Fralda sem oferta", "pictures": [] }
+  ]
+}

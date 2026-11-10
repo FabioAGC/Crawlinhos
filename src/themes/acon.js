@@ -6,23 +6,23 @@ const HEART =
 
 function card(p, h) {
   return `<article class="card" ${h.dataAttrs(p)}>
-  <a class="card-img-wrap" href="${esc(h.href(p))}" ${h.linkAttrs} aria-label="${esc(p.title)}">
+  <a class="card-img-wrap" href="${esc(h.href(p))}" ${h.linkAttrs} tabindex="-1" aria-hidden="true">
     ${p.age ? `<span class="age">${esc(p.age)}</span>` : ''}
     ${p.discount > 0 ? `<span class="disc">- <b>${p.discount}%</b></span>` : ''}
     ${p.isNew ? '<span class="new">Novo</span>' : p.priceDropped ? '<span class="new">Baixou</span>' : ''}
     ${p.image
-      ? `<img class="card-img" src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML='<div class=&quot;card-ph&quot;><span>${esc(h.catLabel(p.cat))}</span></div>'">`
+      ? `<img class="card-img" src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" ${h.imgFallback(p)}>`
       : `<div class="card-ph"><span>${esc(h.catLabel(p.cat))}</span></div>`}
     <span class="wish" aria-hidden="true">${HEART}</span>
   </a>
   <div class="card-meta"><span class="cat-pill">${esc(h.catLabel(p.cat))}</span><span>${esc(p.store)}</span></div>
-  <h3 class="card-name"><a href="${esc(h.href(p))}" ${h.linkAttrs}>${esc(p.title)}</a></h3>
+  <h3 class="card-name"><a href="${esc(h.href(p))}" ${h.linkAttrs} title="${esc(p.title)}">${esc(p.title)}</a></h3>
   <div class="price-row">
     <div class="price-l">
       <span class="price-now">${fmtBRL(p.price)}</span>
       ${p.listPrice ? `<span class="price-orig">${fmtBRL(p.listPrice)}</span>` : ''}
     </div>
-    <a class="price-r" href="${esc(h.href(p))}" ${h.linkAttrs}>Ver <span class="arr">→</span></a>
+    <a class="price-r" href="${esc(h.href(p))}" ${h.linkAttrs} aria-label="Ver oferta: ${esc(p.title)}">Ver <span class="arr">→</span></a>
   </div>
 </article>`;
 }
@@ -32,7 +32,7 @@ function render({ products, cats, sorts, meta, h }) {
   const tickHtml = [...tick, ...tick, ...tick].map((t) => `<span>${esc(t)}</span><span class="dot">◆</span>`).join('');
   const stores = meta.stores.map((s) => `<li><a href="#" data-store="${esc(s)}">${esc(s)}</a></li>`).join('');
   return `<div class="acon radar" data-default-sort="destaque">
-  <div class="tick"><div class="tick-track">${tickHtml}</div></div>
+  <div class="tick" aria-hidden="true"><div class="tick-track">${tickHtml}</div></div>
   <header class="hdr">
     <div class="hdr-l"><a href="#ofertas">Ofertas</a><a href="#lojas">Lojas</a><a href="#sobre">Sobre</a></div>
     <h1 class="wordmark">RADAR <span class="dot">·</span> BEBÊ</h1>
@@ -41,8 +41,8 @@ function render({ products, cats, sorts, meta, h }) {
       <a href="../beleza/" class="hdr-cta">Radar Beleza →</a>
     </div>
   </header>
-  <nav class="cats"><div class="cats-inner">
-    ${cats.map((c, i) => `<button data-cat-btn="${c.id}" class="cat ${i === 0 ? 'is-active' : ''}">${esc(c.label)}</button>`).join('')}
+  <nav class="cats" aria-label="Categorias"><div class="cats-inner">
+    ${cats.map((c, i) => `<button type="button" data-cat-btn="${esc(c.id)}" class="cat ${i === 0 ? 'is-active' : ''}" aria-pressed="${i === 0}">${esc(c.label)}</button>`).join('')}
   </div></nav>
   <section class="title" id="ofertas">
     <h2 class="title-h">Pequenas <em>preciosidades</em>,<br>todos os dias.</h2>
@@ -56,12 +56,12 @@ function render({ products, cats, sorts, meta, h }) {
     <div class="sort-l"><b data-cat-label>Todas categorias</b> · <span data-count>${products.length}</span> produtos</div>
     <div class="sort-r">
       <span class="sort-lab">Ordenar por</span>
-      ${sorts.map((s, i) => `<button data-sort-btn="${s.id}" class="sort-btn ${i === 0 ? 'is-active' : ''}">${esc(s.label)}</button>`).join('')}
+      ${sorts.map((s, i) => `<button type="button" data-sort-btn="${s.id}" class="sort-btn ${i === 0 ? 'is-active' : ''}" aria-pressed="${i === 0}">${esc(s.label)}</button>`).join('')}
     </div>
   </div>
   <main class="feed">
     <div class="grid" data-grid>${products.map((p) => card(p, h)).join('\n')}</div>
-    <p class="empty" data-empty hidden>Nenhuma oferta encontrada com esse filtro.</p>
+    <p class="empty" data-empty role="status" hidden>Nenhuma oferta encontrada com esse filtro.</p>
   </main>
   <footer class="foot">
     <div class="foot-inner">
@@ -71,7 +71,7 @@ function render({ products, cats, sorts, meta, h }) {
         <p class="disclosure">${esc(meta.disclosure)}</p>
       </div>
       <div class="foot-col"><h4>Categorias</h4><ul>
-        ${cats.slice(1, 5).map((c) => `<li><a href="#ofertas" data-cat-link="${c.id}">${esc(c.label)}</a></li>`).join('')}
+        ${cats.slice(1, 5).map((c) => `<li><a href="#ofertas" data-cat-link="${esc(c.id)}">${esc(c.label)}</a></li>`).join('')}
       </ul></div>
       <div class="foot-col" id="lojas"><h4>Lojas</h4><ul>${stores}</ul></div>
       <div class="foot-col"><h4>Radar</h4><ul>
@@ -95,12 +95,30 @@ html,body{margin:0;padding:0;background:#FAF7F4}
 .acon .hdr-search{display:inline-flex;align-items:center;gap:6px}
 .acon .hdr-search input{border:none;border-bottom:1px solid var(--rule);background:none;font:inherit;color:var(--ink);width:120px;padding:4px 2px;outline:none}
 .acon .hdr-search input:focus{border-color:var(--ink)}
+.acon a:focus-visible,.acon button:focus-visible{outline:2px solid var(--lilac-dk);outline-offset:3px;border-radius:2px}
+.acon .hdr-search input:focus-visible{outline:2px solid var(--lilac-dk);outline-offset:2px}
+.acon .cats-inner{scrollbar-width:none}
+.acon .cat:focus-visible{outline-offset:-4px}
+.acon .card-name a{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;overflow-wrap:anywhere}
+.acon .price-row{margin-top:auto}
+.acon .price-l{flex-wrap:wrap;min-width:0}
+.acon .price-orig,.acon .price-r{white-space:nowrap}
+.acon .card-meta{gap:10px}
+.acon .card-meta .cat-pill{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acon .card-meta span:last-child{flex-shrink:0}
+.acon .card-ph{max-width:100%}.acon .card-ph span{text-align:center;padding:0 6px}
+.acon .sort{gap:16px}.acon .sort-btn{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.acon .tick-track{animation:none}.acon .card-img,.acon .wish{transition:none}}
 .acon .hdr-r{align-items:center}
 .acon .empty{text-align:center;color:var(--ink-3);padding:60px 0;font-size:14px}
 .acon .disclosure{font-size:11.5px!important;color:var(--ink-3)!important;margin-top:14px}
 .acon .foot-inner{grid-template-columns:2fr 1fr 1fr 1fr}
 .acon .price-now{white-space:nowrap}
-@media (max-width:1100px){.acon .grid{grid-template-columns:repeat(3,1fr)}.acon .title-h{font-size:64px}}
+@media (max-width:1100px){
+  .acon .grid{grid-template-columns:repeat(3,1fr)}.acon .title-h{font-size:64px}
+  .acon .sort{flex-direction:column;align-items:flex-start;gap:12px}
+  .acon .sort-r{flex-wrap:wrap}.acon .sort-btn:first-of-type{padding-left:0}
+}
 @media (max-width:800px){
   .acon .hdr{grid-template-columns:1fr;padding:18px 16px;gap:12px;text-align:center}
   .acon .hdr-l,.acon .hdr-r{justify-content:center}
@@ -108,7 +126,8 @@ html,body{margin:0;padding:0;background:#FAF7F4}
   .acon .title{grid-template-columns:1fr;padding:32px 16px 20px;gap:18px}
   .acon .title-h{font-size:44px}.acon .title-meta{align-items:flex-start}
   .acon .sort{padding:0 16px 14px;flex-direction:column;align-items:flex-start;gap:10px}
-  .acon .sort-r{flex-wrap:wrap}.acon .sort-lab{display:none}.acon .sort-btn{padding:6px 10px 6px 0;border:none}
+  .acon .sort-lab{display:none}.acon .sort-btn{padding:6px 10px 6px 0;border:none}
+  .acon .card-meta{letter-spacing:.1em}
   .acon .feed{padding:24px 16px 56px}
   .acon .grid{grid-template-columns:repeat(2,1fr);gap:24px 14px}
   .acon .price-now{font-size:22px}.acon .price-row{flex-wrap:wrap}

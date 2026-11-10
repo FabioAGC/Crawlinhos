@@ -1,0 +1,40 @@
+{
+  "_fixture": "NAO E RESPOSTA REAL. Escrito a mao no formato documentado de productOfferV2 da Shopee Affiliate Open API. O host open-api.affiliate.shopee.com.br esta bloqueado pela rede deste servidor e nao ha credenciais.",
+  "data": {
+    "productOfferV2": {
+      "nodes": [
+        {
+          "itemId": 23456789012,
+          "shopId": 345678901,
+          "productName": "Kit 3 Body Bebe Manga Curta",
+          "priceMin": "45.00",
+          "priceMax": "59.90",
+          "priceDiscountRate": 10,
+          "imageUrl": "https://down-br.img.susercontent.com/file/br-11134207-fake",
+          "productLink": "https://shopee.com.br/product/345678901/23456789012",
+          "offerLink": "https://s.shopee.com.br/FAKE123",
+          "commissionRate": "0.07",
+          "sales": 1520,
+          "ratingStar": "4.8",
+          "shopName": "Loja Exemplo"
+        },
+        {
+          "itemId": 111,
+          "shopId": 222,
+          "productName": "Sem desconto e sem productLink",
+          "priceMin": "19.9",
+          "priceDiscountRate": 0,
+          "imageUrl": "https://down-br.img.susercontent.com/file/fake2",
+          "productLink": "",
+          "offerLink": null,
+          "commissionRate": "0.03",
+          "sales": 0,
+          "ratingStar": "0",
+          "shopName": "Outra Loja"
+        },
+        { "itemId": 333, "productName": "Sem preco", "priceMin": null }
+      ],
+      "pageInfo": { "page": 1, "limit": 3, "hasNextPage": true }
+    }
+  }
+}

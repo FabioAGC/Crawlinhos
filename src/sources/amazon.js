@@ -35,7 +35,7 @@ function extractInPage() {
   for (const el of document.querySelectorAll('div[data-component-type="s-search-result"][data-asin]')) {
     const asin = el.getAttribute('data-asin');
     if (!asin) continue;
-    const sponsored = !!el.querySelector('.puis-sponsored-label-text, [aria-label*="atrocinado"]') ||
+    const sponsored = !!el.querySelector('.puis-sponsored-label-text, [aria-label*="atrocinado"], a[href*="/sspa/"]') ||
       /AdHolder/.test(el.className);
     // Em moda/roupas o card tem dois <h2>: o primeiro é só a marca ("Gerber", "Genérico") e o
     // segundo é o título. Usa o h2 com aria-label; senão, o de texto mais longo.

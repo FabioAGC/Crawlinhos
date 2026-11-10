@@ -11,9 +11,10 @@ A ideia é viável, mas o desenho "robô raspa os sites → link de afiliado →
 dois furos que precisam ser fechados antes de investir tempo em qualquer outra coisa:
 
 1. **A coleta não pode depender de scraping.** Testei hoje: Mercado Livre, Magalu e Shopee
-   bloqueiam robôs (verificação de conta, 403 e login obrigatório). Só a Amazon entregou
-   páginas, e os termos do programa de Associados dela proíbem justamente exibir preço obtido
-   fora da API oficial — o que pode custar a conta de afiliado, que é o ativo do negócio.
+   bloqueiam robôs (verificação de conta, 403 e login obrigatório). A Amazon entregou páginas
+   no primeiro dia (288 produtos reais) e **no dia seguinte passou a bloquear o mesmo servidor**.
+   Além disso, os termos do programa de Associados dela proíbem exibir preço obtido fora da API
+   oficial — o que pode custar a conta de afiliado, que é o ativo do negócio.
    O caminho sustentável são as **APIs e feeds oficiais de afiliado**, que entregam produto,
    preço e o link comissionado prontos. O protótipo já está estruturado assim: cada loja é um
    adaptador, e trocar a origem não muda o resto.
@@ -47,7 +48,7 @@ desde o primeiro dia.
 
 | Loja | Como obter produtos e link | O que você precisa fazer | Estado no protótipo |
 |---|---|---|---|
-| **Amazon** | API de afiliados (PA-API / Creators API — confirme qual está vigente). Link: `?tag=seutag-20` | Cadastro no Amazon Associados. O acesso à API costuma exigir vendas qualificadas primeiro; a conta é encerrada se não houver vendas no prazo inicial | Coleta real funcionando por navegador; **usar só para validar o protótipo**, trocar pela API antes de divulgar |
+| **Amazon** | API de afiliados (PA-API / Creators API — confirme qual está vigente). Link: `?tag=SEU-ID-20` | Cadastro no Amazon Associados. O acesso à API costuma exigir vendas qualificadas primeiro; a conta é encerrada se não houver vendas no prazo inicial | Coleta por navegador funcionou no 1º dia e foi bloqueada no 2º; **trocar pela API antes de divulgar** |
 | **Shopee** | Affiliate Open API (GraphQL): devolve oferta, % de comissão e `offerLink` pronto | Cadastro no Shopee Afiliados e pedido de acesso à Open API (appId + secret) | Adaptador escrito, sem credencial para validar |
 | **Mercado Livre** | API oficial com OAuth; link gerado pelo programa de afiliados | App em developers.mercadolivre.com.br + cadastro no programa de Afiliados; confirmar no painel o formato do link | Adaptador escrito, sem credencial para validar |
 | **Magalu** | Sem API pública de catálogo. Opções: vitrine Parceiro Magalu (Magazine Você) ou feed via rede de afiliados | Cadastro no Parceiro Magalu e/ou em rede de afiliados que represente o Magalu | Adaptador de página escrito; bloqueado a partir de datacenter |
@@ -134,8 +135,9 @@ ela paga melhor.
   de cada programa; trate a conta de afiliado como o ativo principal.
 - **Transparência.** Publicidade precisa ser identificável (CDC e CONAR): mantenha o aviso de
   afiliado visível no site e nas postagens de canal.
-- **Preço errado.** Durante os testes o robô chegou a ler "preço por litro" como preço original
-  e exibiu 75% de desconto falso; foi corrigido e há uma trava para descontos implausíveis.
+- **Preço errado.** Durante os testes o robô leu "preço por litro" como preço original (75% de
+  desconto falso) e "preço no cartão" como preço "De:" quando a oferta era só no Pix (5% falso).
+  Os dois foram corrigidos e há trava para descontos implausíveis.
   Serve de aviso: oferta falsa destrói confiança e pode gerar reclamação. O status da coleta
   (`/status.html`) e os testes automatizados existem por isso.
 - **Dependência de terceiros.** Comissão e regras mudam sem aviso. Diversificar lojas e ter

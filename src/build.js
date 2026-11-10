@@ -12,6 +12,10 @@ const { ROOT, loadEnv, readJSON, writeJSON, esc } = require('./util');
 
 loadEnv();
 
+// Diretórios (sobrescrevíveis por variável de ambiente — usado pelos testes)
+const DATA = process.env.RADAR_DATA_DIR || path.join(ROOT, 'data');
+const DIST = process.env.RADAR_DIST_DIR || path.join(ROOT, 'dist');
+
 const THEMES = { acon: require('./themes/acon'), apot: require('./themes/apot') };
 const SORTS = [
   { id: 'destaque', label: 'Destaque' },
@@ -25,7 +29,7 @@ const MONTHS = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', '
 const DISCLOSURE =
   'Este site participa de programas de afiliados (Amazon Associados, Mercado Livre, Shopee e Magalu): podemos receber comissão pelas compras feitas a partir dos nossos links, sem custo adicional para você. Como participante do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas efetuadas.';
 
-function jsonLd(niche, products, baseUrl) {
+function jsonLd(niche, products) {
   return JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -43,14 +47,33 @@ function jsonLd(niche, products, baseUrl) {
   }).replace(/</g, '\\u003c');
 }
 
+const isHttps = (u) => typeof u === 'string' && /^https:\/\//i.test(u);
+/** Link de saída do produto: afiliado se válido, senão a URL da loja (nunca javascript:, data: etc.). */
+const outUrl = (p) => (isHttps(p.affiliateUrl) ? p.affiliateUrl : isHttps(p.url) ? p.url : null);
+
+/**
+ * Atributo onerror que troca a imagem quebrada pelo placeholder da categoria.
+ * Três camadas de escape: HTML do placeholder -> literal de string JS -> valor de atributo HTML.
+ * (Antes o rótulo era escapado uma vez só: o navegador desfaz as entidades do atributo antes de
+ * executar o JS, então um rótulo com ' quebrava o script e um com < virava HTML injetado.)
+ */
+function imgFallback(label) {
+  const html = `<div class="card-ph"><span>${esc(label)}</span></div>`;
+  const js = "'" + html.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\r?\n/g, ' ') + "'";
+  return `onerror="${esc(`this.onerror=null;this.outerHTML=${js}`)}"`;
+}
+
 function buildNiche(nicheId, niche, opts) {
-  const data = readJSON(path.join(ROOT, `data/products/${nicheId}.json`), null);
-  if (!data) {
+  const data = readJSON(path.join(DATA, `products/${nicheId}.json`), null);
+  if (!data || !Array.isArray(data.products)) {
     console.warn(`[build] sem dados para ${nicheId} — rode "npm run crawl" antes`);
     return null;
   }
   const theme = THEMES[niche.theme];
-  const products = data.products;
+  // Só entra na vitrine o que dá para renderizar e linkar (um registro ruim não derruba o build).
+  const products = data.products.filter((p) => p && p.id && p.title && Number.isFinite(p.price) && p.price > 0 && outUrl(p));
+  if (products.length !== data.products.length)
+    console.warn(`[build] ${nicheId}: ${data.products.length - products.length} produto(s) ignorado(s) (sem id/título/preço/link https)`);
   const cats = [{ id: 'all', label: 'Tudo' }, ...niche.categories.filter((c) => products.some((p) => p.cat === c.id))];
   const catLabel = (id) => niche.categories.find((c) => c.id === id)?.label || id;
   const gen = new Date(data.generatedAt);
@@ -65,10 +88,11 @@ function buildNiche(nicheId, niche, opts) {
   };
   const h = {
     catLabel,
-    href: (p) => (opts.linkMode === 'direct' ? p.affiliateUrl : `/go/${encodeURIComponent(p.id)}`),
+    href: (p) => (opts.linkMode === 'direct' ? outUrl(p) : `/go/${encodeURIComponent(p.id)}`),
+    imgFallback: (p) => imgFallback(catLabel(p.cat)),
     linkAttrs: 'target="_blank" rel="sponsored nofollow noopener"',
     dataAttrs: (p) =>
-      `data-id="${esc(p.id)}" data-cat="${esc(p.cat)}" data-store="${esc(p.store)}" data-price="${p.price}" data-disc="${p.discount}" data-score="${p.score}" data-pop="${p.reviews || p.sold || 0}" data-first="${esc(p.firstSeen)}" data-title="${esc(p.title)}"`,
+      `data-id="${esc(p.id)}" data-cat="${esc(p.cat)}" data-store="${esc(p.store)}" data-price="${p.price}" data-disc="${Number(p.discount) || 0}" data-score="${Number(p.score) || 0}" data-pop="${Number(p.reviews || p.sold) || 0}" data-first="${esc(p.firstSeen)}" data-title="${esc(p.title)}"`,
   };
   const css = fs.readFileSync(path.join(__dirname, `themes/${theme.id}.css`), 'utf8');
   const body = theme.render({ products, cats, sorts: SORTS, meta, h });
@@ -93,11 +117,11 @@ ${body}
 <script src="../assets/app.js" defer></script>
 </body>
 </html>`;
-  const out = path.join(ROOT, `dist/${nicheId}/index.html`);
+  const out = path.join(DIST, `${nicheId}/index.html`);
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, html);
   console.log(`[build] dist/${nicheId}/index.html — ${products.length} produtos, ${(html.length / 1024).toFixed(0)} KB`);
-  return { nicheId, title: niche.title, total: products.length, generatedAt: data.generatedAt, description: theme.description };
+  return { nicheId, title: niche.title, total: products.length, generatedAt: data.generatedAt, description: theme.description, products };
 }
 
 function buildHub(built) {
@@ -106,6 +130,7 @@ function buildHub(built) {
     .join('\n');
   const html = `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Radar — ofertas do dia</title>
+<meta name="description" content="Radar Bebê e Radar Beleza: as melhores ofertas do dia nas principais lojas do Brasil, atualizadas diariamente.">
 <style>body{margin:0;font-family:system-ui,sans-serif;background:#FAF7F4;color:#2A1F2A;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 16px;box-sizing:border-box}
 h1{font-weight:400;font-size:44px;margin:0 0 8px;letter-spacing:.04em}p.sub{color:#6b5f6b;margin:0 0 36px;text-align:center}
 .hub{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;width:100%;max-width:760px}
@@ -115,18 +140,18 @@ h1{font-weight:400;font-size:44px;margin:0 0 8px;letter-spacing:.04em}p.sub{colo
 footer{margin-top:40px;font-size:12px;color:#9A8E9A}footer a{color:inherit}</style></head>
 <body><h1>RADAR</h1><p class="sub">Ofertas reais, atualizadas todos os dias.</p><div class="hub">${cards}</div>
 <footer><a href="./status.html">status da coleta</a></footer></body></html>`;
-  fs.writeFileSync(path.join(ROOT, 'dist/index.html'), html);
+  fs.writeFileSync(path.join(DIST, 'index.html'), html);
 }
 
 function buildStatus() {
-  const st = readJSON(path.join(ROOT, 'data/status.json'), null);
-  if (!st) return;
+  const st = readJSON(path.join(DATA, 'status.json'), null);
+  if (!st || !st.niches) return;
   const color = { OK: '#2e7d32', PARTIAL: '#b26a00', NO_CREDENTIALS: '#b26a00', BLOCKED: '#c62828', EMPTY: '#c62828' };
   const rows = Object.entries(st.niches)
     .flatMap(([n, v]) =>
-      Object.entries(v.sources).map(
+      Object.entries(v.sources || {}).map(
         ([s, x]) =>
-          `<tr><td>${esc(n)}</td><td>${esc(s)}</td><td style="color:${color[x.status] || '#c62828'};font-weight:600">${esc(x.status)}</td><td>${x.count}</td><td>${x.tagged ?? 0}</td><td>${esc(x.errors[0]?.message || '')}</td></tr>`
+          `<tr><td>${esc(n)}</td><td>${esc(s)}</td><td style="color:${color[x.status] || '#c62828'};font-weight:600">${esc(x.status)}</td><td>${Number(x.count) || 0}</td><td>${Number(x.tagged) || 0}</td><td>${esc(x.errors?.[0]?.message || '')}</td></tr>`
       )
     )
     .join('\n');
@@ -136,25 +161,23 @@ function buildStatus() {
 <body><main><h1>Status da coleta</h1><p>Última execução: ${esc(new Date(st.generatedAt).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }))} (Brasília)</p>
 <div class="wrap"><table><tr><th>Nicho</th><th>Fonte</th><th>Status</th><th>Produtos</th><th>Com link de afiliado</th><th>Detalhe</th></tr>${rows}</table></div>
 <p><a href="./">← voltar</a></p></main></body></html>`;
-  fs.writeFileSync(path.join(ROOT, 'dist/status.html'), html);
+  fs.writeFileSync(path.join(DIST, 'status.html'), html);
 }
 
 function build() {
   const niches = readJSON(path.join(ROOT, 'config/niches.json'), {});
   const opts = { linkMode: process.env.LINK_MODE === 'direct' ? 'direct' : 'redirect' };
-  fs.mkdirSync(path.join(ROOT, 'dist/assets'), { recursive: true });
-  fs.copyFileSync(path.join(__dirname, 'client.js'), path.join(ROOT, 'dist/assets/app.js'));
+  fs.mkdirSync(path.join(DIST, 'assets'), { recursive: true });
+  fs.copyFileSync(path.join(__dirname, 'client.js'), path.join(DIST, 'assets/app.js'));
   const built = Object.entries(niches).map(([id, n]) => buildNiche(id, n, opts)).filter(Boolean);
   buildHub(built);
   buildStatus();
   // Mapa id -> link de afiliado, usado pelo redirecionador /go/<id>
   const links = {};
-  for (const b of built)
-    for (const p of readJSON(path.join(ROOT, `data/products/${b.nicheId}.json`), { products: [] }).products)
-      links[p.id] = p.affiliateUrl;
-  writeJSON(path.join(ROOT, 'data/links.json'), links);
+  for (const b of built) for (const p of b.products) links[p.id] = outUrl(p);
+  writeJSON(path.join(DATA, 'links.json'), links);
   return built;
 }
 
 if (require.main === module) build();
-module.exports = { build };
+module.exports = { build, imgFallback };

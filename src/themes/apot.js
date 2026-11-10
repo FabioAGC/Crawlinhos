@@ -17,22 +17,22 @@ const GLYPHS = {
 
 function card(p, h, i) {
   return `<article class="card" ${h.dataAttrs(p)}>
-  <a class="card-img-wrap" href="${esc(h.href(p))}" ${h.linkAttrs} aria-label="${esc(p.title)}">
+  <a class="card-img-wrap" href="${esc(h.href(p))}" ${h.linkAttrs} tabindex="-1" aria-hidden="true">
     <div class="card-orn">${leaf(22)}</div>
     ${p.isNew ? '<span class="new">Novo</span>' : p.priceDropped ? '<span class="new">Baixou</span>' : ''}
     ${p.discount > 0 ? `<span class="disc">— <b>${p.discount}%</b></span>` : ''}
     ${p.image
-      ? `<img class="card-img" src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML='<div class=&quot;card-ph&quot;><span>${esc(h.catLabel(p.cat))}</span></div>'">`
+      ? `<img class="card-img" src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" ${h.imgFallback(p)}>`
       : `<div class="card-ph"><span>${esc(h.catLabel(p.cat))}</span></div>`}
   </a>
   <div class="card-body">
     <div class="card-tax"><span class="ix">№ ${String(i + 1).padStart(3, '0')}</span><span>${esc(h.catLabel(p.cat))} · ${esc(p.store)}</span></div>
-    <h3 class="card-name"><a href="${esc(h.href(p))}" ${h.linkAttrs}>${esc(p.title)}</a></h3>
+    <h3 class="card-name"><a href="${esc(h.href(p))}" ${h.linkAttrs} title="${esc(p.title)}">${esc(p.title)}</a></h3>
     <div class="price-row">
       <span class="price-now">${fmtBRL(p.price)}</span>
       ${p.listPrice ? `<span class="price-orig">${fmtBRL(p.listPrice)}</span>` : ''}
     </div>
-    <a class="card-cta" href="${esc(h.href(p))}" ${h.linkAttrs}>Ir para a loja <span class="arr">→</span></a>
+    <a class="card-cta" href="${esc(h.href(p))}" ${h.linkAttrs} aria-label="Ir para a loja: ${esc(p.title)}">Ir para a loja <span class="arr">→</span></a>
   </div>
 </article>`;
 }
@@ -54,18 +54,18 @@ function render({ products, cats, sorts, meta, h }) {
     <p class="brand-sub">Selecionamos a cada manhã as melhores ofertas em perfumes, skincare e cosméticos das principais lojas do Brasil.</p>
     <div class="brand-orn"><span class="brand-orn-line"></span>${leaf(12)}<span class="brand-orn-mark">est. MMXXVI</span>${leaf(12)}<span class="brand-orn-line"></span></div>
   </div>
-  <nav class="rail" id="ofertas"><div class="rail-inner">
-    ${cats.map((c, i) => `<button data-cat-btn="${c.id}" class="cat ${i === 0 ? 'is-active' : ''}"><span class="cat-glyph">${GLYPHS[c.id] || GLYPHS.all}</span>${esc(c.label)}</button>`).join('')}
+  <nav class="rail" id="ofertas" aria-label="Categorias"><div class="rail-inner">
+    ${cats.map((c, i) => `<button type="button" data-cat-btn="${esc(c.id)}" class="cat ${i === 0 ? 'is-active' : ''}" aria-pressed="${i === 0}"><span class="cat-glyph">${GLYPHS[c.id] || GLYPHS.all}</span>${esc(c.label)}</button>`).join('')}
   </div></nav>
   <div class="ctrl">
-    <div class="ctrl-l"><span class="num" data-count>${products.length}</span><span class="lbl">ofertas em curadoria · atualizado ${esc(meta.updatedLabel)}</span></div>
+    <div class="ctrl-l"><span class="num" data-count>${products.length}</span><span class="lbl">ofertas em curadoria<span data-cat-label-suffix></span> · atualizado ${esc(meta.updatedLabel)}</span></div>
     <div class="ctrl-r">
-      ${sorts.map((s, i) => `<button data-sort-btn="${s.id}" class="sort-btn ${i === 0 ? 'is-active' : ''}">${esc(s.label)}</button>`).join('')}
+      ${sorts.map((s, i) => `<button type="button" data-sort-btn="${s.id}" class="sort-btn ${i === 0 ? 'is-active' : ''}" aria-pressed="${i === 0}">${esc(s.label)}</button>`).join('')}
     </div>
   </div>
   <main class="feed">
     <div class="grid" data-grid>${products.map((p, i) => card(p, h, i)).join('\n')}</div>
-    <p class="empty" data-empty hidden>Nenhuma oferta encontrada com esse filtro.</p>
+    <p class="empty" data-empty role="status" hidden>Nenhuma oferta encontrada com esse filtro.</p>
   </main>
   <footer class="foot">
     <div class="foot-inner">
@@ -75,7 +75,7 @@ function render({ products, cats, sorts, meta, h }) {
         <p class="disclosure">${esc(meta.disclosure)}</p>
       </div>
       <div class="foot-col"><h4>Categorias</h4><ul>
-        ${cats.slice(1, 5).map((c) => `<li><a href="#ofertas" data-cat-link="${c.id}">${esc(c.label)}</a></li>`).join('')}
+        ${cats.slice(1, 5).map((c) => `<li><a href="#ofertas" data-cat-link="${esc(c.id)}">${esc(c.label)}</a></li>`).join('')}
       </ul></div>
       <div class="foot-col" id="lojas"><h4>Lojas</h4><ul>${stores}</ul></div>
       <div class="foot-col"><h4>Radar</h4><ul>
@@ -102,7 +102,22 @@ html,body{margin:0;padding:0;background:#EDEAE0}
 .apot .empty{text-align:center;color:var(--ink-3);padding:60px 0;font-size:14px}
 .apot .disclosure{font-size:11.5px!important;color:var(--ink-3)!important;margin-top:12px}
 .apot .ctrl-r{flex-wrap:wrap}
-@media (max-width:1100px){.apot .brand-title{font-size:60px}}
+.apot .hdr-search input:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
+.apot a:focus-visible,.apot button:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+.apot .hdr a:focus-visible{outline-color:var(--paper)}
+.apot .rail-inner{padding:3px 0}
+.apot .card-name a{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden;overflow-wrap:anywhere}
+.apot .card-tax{gap:10px}.apot .card-tax .ix{white-space:nowrap;flex-shrink:0}
+.apot .card-tax span:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.apot .price-now,.apot .price-orig{white-space:nowrap}
+.apot .card-ph span{text-align:center;padding:0 6px}
+.apot .sort-btn{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.apot .card,.apot .card-img{transition:none}}
+@media (max-width:1100px){
+  .apot .brand-title{font-size:60px}
+  .apot .ctrl{flex-direction:column;align-items:flex-start;gap:14px}
+  .apot .ctrl-r{border-radius:22px}
+}
 @media (max-width:900px){.apot .grid{grid-template-columns:repeat(2,1fr);gap:16px}}
 @media (max-width:800px){
   .apot .hdr{padding:12px 16px;flex-direction:column;gap:10px}
@@ -114,6 +129,8 @@ html,body{margin:0;padding:0;background:#EDEAE0}
   .apot .ctrl-r{border-radius:14px}.apot .sort-btn{padding:7px 11px}
   .apot .feed{padding:8px 16px 44px}
   .apot .card-body{padding:14px 14px 16px}.apot .card-name{font-size:15.5px}
+  .apot .card-tax{letter-spacing:.08em;font-size:9.5px;align-items:flex-start}
+  .apot .card-tax span:last-child{white-space:normal;text-align:right}
   .apot .price-row{flex-wrap:wrap}.apot .price-now{font-size:20px}
   .apot .card-cta{padding:9px 14px}
   .apot .foot{padding:36px 16px 26px}.apot .foot-inner{grid-template-columns:1fr 1fr;gap:26px}

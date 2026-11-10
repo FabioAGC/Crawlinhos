@@ -39,6 +39,9 @@ const fmtBRL = (n) =>
 const esc = (s) =>
   String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+/** Minúsculas sem acento, para comparar títulos/termos ("Geriátrica" -> "geriatrica"). */
+const fold = (s) => String(s ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function readJSON(file, fallback) {
@@ -71,4 +74,4 @@ async function http(url, opts = {}) {
   }
 }
 
-module.exports = { ROOT, loadEnv, SourceError, parseBRL, fmtBRL, esc, sleep, readJSON, writeJSON, http };
+module.exports = { ROOT, loadEnv, SourceError, parseBRL, fmtBRL, esc, fold, sleep, readJSON, writeJSON, http };

@@ -1,0 +1,6 @@
+{
+  "_fixture": "NAO E RESPOSTA REAL. Formato documentado de erro da Shopee Affiliate Open API (HTTP 200 + errors[]); codigo 10020 = erro de autenticacao/assinatura.",
+  "errors": [
+    { "message": "error [10020]: Invalid Signature", "path": ["productOfferV2"], "extensions": { "code": 10020, "message": "Invalid Signature" } }
+  ]
+}

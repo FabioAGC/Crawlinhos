@@ -1,0 +1,9 @@
+{
+  "_fixture": "NAO E RESPOSTA REAL. Formato documentado de POST /oauth/token (grant_type=refresh_token). Valores ficticios.",
+  "access_token": "APP_USR-FAKE-ACCESS-NOVO",
+  "token_type": "Bearer",
+  "expires_in": 21600,
+  "scope": "offline_access read",
+  "user_id": 123456789,
+  "refresh_token": "TG-FAKE-REFRESH-ROTACIONADO"
+}
