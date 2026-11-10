@@ -178,7 +178,7 @@
 .apot .card-img {
   width: 70%; height: 70%; object-fit: contain;
   mix-blend-mode: multiply;
-  filter: drop-shadow(0 16px 28px rgba(42,45,38,0.22));
+  /* sem drop-shadow: ele seguia a caixa retangular da foto e criava uma moldura visível */
   transition: transform .5s cubic-bezier(.4,0,.2,1);
 }
 .apot .card:hover .card-img { transform: scale(1.06); }
@@ -303,3 +303,16 @@
   font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em;
   color: var(--ink-3);
 }
+
+/* Produto fundido ao fundo: a foto (fundo branco) entra em multiply sobre o backdrop
+   e a "sombra" é uma elipse de contato independente da caixa da imagem. */
+.apot .card-img-wrap { isolation: isolate; }
+.apot .card-img { z-index: 1; }
+.apot .card-img-wrap::after {
+  content: ''; position: absolute; z-index: 0; pointer-events: none;
+  left: 24%; right: 24%; bottom: 8%; height: 9%;
+  background: radial-gradient(ellipse at center, rgba(42,45,38,0.18), transparent 70%);
+  filter: blur(6px);
+}
+.apot .card-img { position: relative; }
+.apot .card-orn, .apot .disc, .apot .new { z-index: 2; }

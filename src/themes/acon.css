@@ -145,7 +145,7 @@
 .acon .card-img {
   position: relative;
   width: 78%; height: 78%; object-fit: contain; mix-blend-mode: multiply;
-  filter: drop-shadow(0 14px 30px rgba(42,31,42,0.18));
+  /* sem drop-shadow: ele seguia a caixa retangular da foto e criava uma moldura visível */
   transition: transform .5s cubic-bezier(.4,0,.2,1);
 }
 .acon .card:hover .card-img { transform: scale(1.05) translateY(-3px); }
@@ -253,3 +253,15 @@
   font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--ink-3);
 }
+
+/* Produto fundido ao fundo: a foto (fundo branco) entra em multiply sobre o backdrop
+   e a "sombra" é uma elipse de contato independente da caixa da imagem. */
+.acon .card-img-wrap { isolation: isolate; }
+.acon .card-img { z-index: 1; }
+.acon .card-img-wrap::after {
+  content: ''; position: absolute; z-index: 0; pointer-events: none;
+  left: 24%; right: 24%; bottom: 8%; height: 9%;
+  background: radial-gradient(ellipse at center, rgba(42,31,42,0.16), transparent 70%);
+  filter: blur(6px);
+}
+.acon .age, .acon .disc, .acon .new, .acon .wish { z-index: 2; }
