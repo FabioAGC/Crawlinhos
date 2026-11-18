@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-16T19:23:48.770Z",
+  "generatedAt": "2026-11-18T17:52:42.968Z",
   "niches": {
     "bebe": {
-      "total": 140,
+      "total": 144,
       "stale": false,
       "sources": {
         "amazon": {
           "status": "OK",
-          "count": 140,
+          "count": 144,
           "queries": 13,
           "errors": [],
           "stale": 0,
@@ -58,12 +58,12 @@
       }
     },
     "beleza": {
-      "total": 129,
+      "total": 127,
       "stale": false,
       "sources": {
         "amazon": {
           "status": "OK",
-          "count": 129,
+          "count": 127,
           "queries": 11,
           "errors": [],
           "stale": 0,
