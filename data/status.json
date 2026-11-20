@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-19T18:02:22.325Z",
+  "generatedAt": "2026-11-20T17:45:40.810Z",
   "niches": {
     "bebe": {
-      "total": 144,
+      "total": 146,
       "stale": false,
       "sources": {
         "amazon": {
           "status": "OK",
-          "count": 144,
+          "count": 146,
           "queries": 13,
           "errors": [],
           "stale": 0,
