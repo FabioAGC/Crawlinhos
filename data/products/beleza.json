@@ -1,13 +1,19 @@
 {
   "niche": "beleza",
-  "generatedAt": "2026-11-21T16:40:10.397Z",
+  "generatedAt": "2026-11-22T16:57:54.669Z",
   "sources": {
     "amazon": {
-      "status": "OK",
-      "count": 127,
-      "queries": 11,
-      "errors": [],
-      "stale": 0,
+      "status": "BLOCKED",
+      "count": 0,
+      "queries": 0,
+      "errors": [
+        {
+          "query": "perfume feminino eau de parfum",
+          "code": "BLOCKED",
+          "message": "Amazon pediu verificação ou devolveu página de erro"
+        }
+      ],
+      "stale": 127,
       "tagged": 0
     },
     "mercadolivre": {
@@ -77,7 +83,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 96
+      "score": 96,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0B92Y18GT",
@@ -102,7 +110,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 91
+      "score": 91,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B096YBTCTR",
@@ -127,7 +137,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 91
+      "score": 91,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0746RDSF9",
@@ -152,7 +164,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 89
+      "score": 89,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B077BY5XQH",
@@ -177,7 +191,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 87
+      "score": 87,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B07Y2BK4GJ",
@@ -201,8 +217,10 @@
       "firstSeen": "2026-11-11",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 87
+      "lowestSeen": false,
+      "score": 87,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08NVMP2YZ",
@@ -227,7 +245,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 86
+      "score": 86,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B074LTNQBP",
@@ -252,7 +272,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 86
+      "score": 86,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B093ZM679D",
@@ -277,7 +299,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 85
+      "score": 85,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B096FXGX1Y",
@@ -301,8 +325,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 84
+      "lowestSeen": false,
+      "score": 84,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B09HW92VTZ",
@@ -326,8 +352,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 83
+      "lowestSeen": false,
+      "score": 83,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0BD6755LC",
@@ -350,9 +378,11 @@
       "age": null,
       "firstSeen": "2026-11-09",
       "isNew": false,
-      "priceDropped": true,
-      "lowestSeen": true,
-      "score": 82
+      "priceDropped": false,
+      "lowestSeen": false,
+      "score": 82,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08NVNRH6H",
@@ -374,10 +404,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-20",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 82
+      "score": 82,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0DKVJ1HWB",
@@ -402,7 +434,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 82
+      "score": 82,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B000P20R8I",
@@ -424,10 +458,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-19",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 81
+      "score": 81,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08NVML21R",
@@ -452,7 +488,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 81
+      "score": 81,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08YZGMQ3S",
@@ -477,7 +515,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 81
+      "score": 81,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B00M3IFUMK",
@@ -502,7 +542,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 80
+      "score": 80,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B09532P5P4",
@@ -527,7 +569,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 80
+      "score": 80,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0GHPGBPSR",
@@ -552,7 +596,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 80
+      "score": 80,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0F1TL89GQ",
@@ -574,10 +620,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-21",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 79
+      "score": 79,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B079VWB8JN",
@@ -602,7 +650,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 78
+      "score": 78,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B077BY4FMF",
@@ -627,7 +677,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 77
+      "score": 77,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08XMCFMG5",
@@ -652,7 +704,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 77
+      "score": 77,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0GY9B1RQL",
@@ -676,8 +730,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 77
+      "lowestSeen": false,
+      "score": 77,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08F9ZQ52X",
@@ -702,7 +758,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 76
+      "score": 76,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B008SBKTLI",
@@ -724,10 +782,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-19",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 76
+      "score": 76,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B09RZ1YKHL",
@@ -749,10 +809,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-19",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 76
+      "score": 76,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0B695DMC2",
@@ -777,7 +839,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 75
+      "score": 75,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B00GSUCEJ6",
@@ -801,8 +865,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 74
+      "lowestSeen": false,
+      "score": 74,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B09RB8XLYN",
@@ -827,7 +893,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 74
+      "score": 74,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B084GXZ2V2",
@@ -849,10 +917,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-19",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 74
+      "score": 74,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B079VPMXHF",
@@ -874,10 +944,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-19",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 74
+      "score": 74,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0D8N33NBS",
@@ -902,7 +974,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 74
+      "score": 74,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B071SGZ7CK",
@@ -927,7 +1001,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 73
+      "score": 73,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08GB65ZB7",
@@ -952,7 +1028,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 73
+      "score": 73,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0G45KPX15",
@@ -976,8 +1054,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 73
+      "lowestSeen": false,
+      "score": 73,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0CQKFJX8S",
@@ -1001,8 +1081,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 73
+      "lowestSeen": false,
+      "score": 73,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0B3Y28N87",
@@ -1027,7 +1109,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 72
+      "score": 72,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0D7LSMJ5Z",
@@ -1049,10 +1133,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-19",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 72
+      "score": 72,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08H4FSGDW",
@@ -1077,7 +1163,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 72
+      "score": 72,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B09RYYXHVX",
@@ -1099,10 +1187,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-20",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 71
+      "score": 71,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0F4G1GF7W",
@@ -1127,7 +1217,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 71
+      "score": 71,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B079VXJK79",
@@ -1151,8 +1243,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 71
+      "lowestSeen": false,
+      "score": 71,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0CHZ4Y4PS",
@@ -1174,10 +1268,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-21",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 70
+      "score": 70,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0DLQ2VFWF",
@@ -1202,7 +1298,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 70
+      "score": 70,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B07F5RMGYW",
@@ -1227,7 +1325,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 70
+      "score": 70,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08L4137M8",
@@ -1251,8 +1351,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 69
+      "lowestSeen": false,
+      "score": 69,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0F67MQCGQ",
@@ -1277,7 +1379,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 69
+      "score": 69,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0GTRRRWH4",
@@ -1302,7 +1406,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 68
+      "score": 68,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0DR3Q9ZKX",
@@ -1327,7 +1433,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 68
+      "score": 68,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0D7LF4KNS",
@@ -1352,7 +1460,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 66
+      "score": 66,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08L43NNMY",
@@ -1377,7 +1487,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 66
+      "score": 66,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0D42Z88X5",
@@ -1402,7 +1514,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 66
+      "score": 66,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0F9MSSJ1N",
@@ -1425,9 +1539,11 @@
       "age": null,
       "firstSeen": "2026-11-09",
       "isNew": false,
-      "priceDropped": true,
+      "priceDropped": false,
       "lowestSeen": false,
-      "score": 66
+      "score": 66,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B002XQ1X4G",
@@ -1451,8 +1567,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 64
+      "lowestSeen": false,
+      "score": 64,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0B1RLQVVX",
@@ -1477,7 +1595,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 64
+      "score": 64,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0D2V2K78X",
@@ -1500,9 +1620,11 @@
       "age": null,
       "firstSeen": "2026-11-09",
       "isNew": false,
-      "priceDropped": true,
+      "priceDropped": false,
       "lowestSeen": false,
-      "score": 64
+      "score": 64,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08BV3R2F5",
@@ -1526,8 +1648,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 63
+      "lowestSeen": false,
+      "score": 63,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0CYQR4TQF",
@@ -1552,7 +1676,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 63
+      "score": 63,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0C9L4ZNZ8",
@@ -1577,7 +1703,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 63
+      "score": 63,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0DK4975DJ",
@@ -1602,7 +1730,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 63
+      "score": 63,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0BJ347WND",
@@ -1627,7 +1757,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 62
+      "score": 62,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0DHLCH1ZP",
@@ -1652,7 +1784,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 62
+      "score": 62,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0DM9SVCYY",
@@ -1675,9 +1809,11 @@
       "age": null,
       "firstSeen": "2026-11-09",
       "isNew": false,
-      "priceDropped": true,
+      "priceDropped": false,
       "lowestSeen": false,
-      "score": 61
+      "score": 61,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B08B5GFHZN",
@@ -1700,9 +1836,11 @@
       "age": null,
       "firstSeen": "2026-11-10",
       "isNew": false,
-      "priceDropped": true,
+      "priceDropped": false,
       "lowestSeen": false,
-      "score": 60
+      "score": 60,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B077C5BP4L",
@@ -1726,8 +1864,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 60
+      "lowestSeen": false,
+      "score": 60,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0F4G9HWF7",
@@ -1752,7 +1892,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 59
+      "score": 59,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B075GHCP4S",
@@ -1777,7 +1919,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 58
+      "score": 58,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B00384YBE6",
@@ -1800,9 +1944,11 @@
       "age": null,
       "firstSeen": "2026-11-11",
       "isNew": false,
-      "priceDropped": true,
+      "priceDropped": false,
       "lowestSeen": false,
-      "score": 57
+      "score": 57,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0C2ZR8GCF",
@@ -1827,7 +1973,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 57
+      "score": 57,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0CS3TJ7VH",
@@ -1852,7 +2000,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 56
+      "score": 56,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FBMKZPM3",
@@ -1877,7 +2027,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 56
+      "score": 56,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B09MD9X4MG",
@@ -1900,9 +2052,11 @@
       "age": null,
       "firstSeen": "2026-11-09",
       "isNew": false,
-      "priceDropped": true,
+      "priceDropped": false,
       "lowestSeen": false,
-      "score": 56
+      "score": 56,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B01I54ITP0",
@@ -1926,8 +2080,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 55
+      "lowestSeen": false,
+      "score": 55,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0DXQGTGZB",
@@ -1951,8 +2107,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 55
+      "lowestSeen": false,
+      "score": 55,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0748GD9DD",
@@ -1977,7 +2135,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 54
+      "score": 54,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B09WC8Q5H3",
@@ -2002,7 +2162,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 54
+      "score": 54,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0GN3THSRG",
@@ -2024,10 +2186,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-19",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 54
+      "score": 54,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FWT7Y15V",
@@ -2049,10 +2213,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-19",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 54
+      "score": 54,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B09HQ5TJPG",
@@ -2076,8 +2242,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 53
+      "lowestSeen": false,
+      "score": 53,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B000W9I8Q2",
@@ -2102,7 +2270,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 52
+      "score": 52,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FRSZ7BK7",
@@ -2127,7 +2297,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 52
+      "score": 52,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FB5JPVXD",
@@ -2150,9 +2322,11 @@
       "age": null,
       "firstSeen": "2026-11-09",
       "isNew": false,
-      "priceDropped": true,
+      "priceDropped": false,
       "lowestSeen": false,
-      "score": 51
+      "score": 51,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B088P95YR5",
@@ -2177,7 +2351,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 49
+      "score": 49,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0002JVJ2C",
@@ -2202,7 +2378,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 48
+      "score": 48,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0BKWMR76V",
@@ -2227,7 +2405,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 48
+      "score": 48,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0BKWJ3WBL",
@@ -2252,7 +2432,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 47
+      "score": 47,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0CXW1BY76",
@@ -2277,7 +2459,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 47
+      "score": 47,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FWFF1LX2",
@@ -2302,7 +2486,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 47
+      "score": 47,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B077BY5B8Q",
@@ -2327,7 +2513,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 46
+      "score": 46,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0DWXVXT57",
@@ -2352,7 +2540,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 46
+      "score": 46,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B07MSFKCDX",
@@ -2377,7 +2567,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 45
+      "score": 45,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0CBQP363Z",
@@ -2400,9 +2592,11 @@
       "age": null,
       "firstSeen": "2026-11-09",
       "isNew": false,
-      "priceDropped": true,
-      "lowestSeen": true,
-      "score": 44
+      "priceDropped": false,
+      "lowestSeen": false,
+      "score": 44,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B093NCZ2SQ",
@@ -2424,10 +2618,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-21",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 44
+      "score": 44,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B01HT60GU6",
@@ -2449,10 +2645,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-21",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 41
+      "score": 41,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0BGMKB28V",
@@ -2477,7 +2675,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 40
+      "score": 40,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B07MFWRWFP",
@@ -2502,7 +2702,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 39
+      "score": 39,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FWF6SFW7",
@@ -2527,7 +2729,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 39
+      "score": 39,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0C4VT5GRF",
@@ -2552,7 +2756,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 37
+      "score": 37,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0DHYMZ47Z",
@@ -2577,7 +2783,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 36
+      "score": 36,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B00OWU2WQO",
@@ -2602,7 +2810,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 35
+      "score": 35,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FBD3G6FR",
@@ -2627,7 +2837,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 35
+      "score": 35,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FVZWBSMR",
@@ -2652,7 +2864,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 35
+      "score": 35,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0GKJLPC27",
@@ -2674,10 +2888,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-19",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 34
+      "score": 34,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0GFGBZ74H",
@@ -2702,7 +2918,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 32
+      "score": 32,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0GN9WQ8P5",
@@ -2724,10 +2942,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-21",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 31
+      "score": 31,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0HGSV4P2H",
@@ -2750,9 +2970,11 @@
       "age": null,
       "firstSeen": "2026-11-09",
       "isNew": false,
-      "priceDropped": true,
+      "priceDropped": false,
       "lowestSeen": false,
-      "score": 30
+      "score": 30,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0F4T4RPM7",
@@ -2774,10 +2996,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-19",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 29
+      "score": 29,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0H6QZSNTP",
@@ -2799,10 +3023,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-20",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 29
+      "score": 29,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FS93Q39H",
@@ -2827,7 +3053,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 27
+      "score": 27,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FVZ51ZZL",
@@ -2852,7 +3080,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 25
+      "score": 25,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FF617CVN",
@@ -2877,7 +3107,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 23
+      "score": 23,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0BCD99Q4Z",
@@ -2902,7 +3134,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 22
+      "score": 22,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0F2TP3348",
@@ -2927,7 +3161,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 22
+      "score": 22,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0HLMRZMNB",
@@ -2949,10 +3185,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-21",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 17
+      "score": 17,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FS8NMY6H",
@@ -2977,7 +3215,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 13
+      "score": 13,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0FVZ4N7HK",
@@ -2999,10 +3239,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-21",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 13
+      "score": 13,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0HHNRQRYN",
@@ -3027,7 +3269,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 13
+      "score": 13,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0H9Z16S6D",
@@ -3052,7 +3296,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 8
+      "score": 8,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0HLBH2388",
@@ -3077,7 +3323,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 8
+      "score": 8,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0HFSS4QPN",
@@ -3101,8 +3349,10 @@
       "firstSeen": "2026-11-09",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 8
+      "lowestSeen": false,
+      "score": 8,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0GPL712R1",
@@ -3125,9 +3375,11 @@
       "age": null,
       "firstSeen": "2026-11-09",
       "isNew": false,
-      "priceDropped": true,
-      "lowestSeen": true,
-      "score": 8
+      "priceDropped": false,
+      "lowestSeen": false,
+      "score": 8,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0HPGX5S7V",
@@ -3151,8 +3403,10 @@
       "firstSeen": "2026-11-12",
       "isNew": false,
       "priceDropped": false,
-      "lowestSeen": true,
-      "score": 8
+      "lowestSeen": false,
+      "score": 8,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0HMP83SZM",
@@ -3177,7 +3431,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 8
+      "score": 8,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0H34WH6TF",
@@ -3199,10 +3455,12 @@
       "sold": null,
       "age": null,
       "firstSeen": "2026-11-21",
-      "isNew": true,
+      "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 8
+      "score": 8,
+      "stale": true,
+      "staleSince": "2026-11-21"
     },
     {
       "id": "amazon:B0HPWBGWCS",
@@ -3227,7 +3485,9 @@
       "isNew": false,
       "priceDropped": false,
       "lowestSeen": false,
-      "score": 8
+      "score": 8,
+      "stale": true,
+      "staleSince": "2026-11-21"
     }
   ]
 }
