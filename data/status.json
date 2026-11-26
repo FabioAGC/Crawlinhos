@@ -1,16 +1,22 @@
 {
-  "generatedAt": "2026-11-25T19:00:36.174Z",
+  "generatedAt": "2026-11-26T18:52:45.898Z",
   "niches": {
     "bebe": {
       "total": 142,
       "stale": false,
       "sources": {
         "amazon": {
-          "status": "OK",
-          "count": 142,
-          "queries": 13,
-          "errors": [],
-          "stale": 0,
+          "status": "BLOCKED",
+          "count": 0,
+          "queries": 0,
+          "errors": [
+            {
+              "query": "sabonete liquido bebe",
+              "code": "BLOCKED",
+              "message": "Amazon pediu verificação ou devolveu página de erro"
+            }
+          ],
+          "stale": 142,
           "tagged": 0
         },
         "mercadolivre": {
@@ -62,11 +68,17 @@
       "stale": false,
       "sources": {
         "amazon": {
-          "status": "OK",
-          "count": 126,
-          "queries": 11,
-          "errors": [],
-          "stale": 0,
+          "status": "BLOCKED",
+          "count": 0,
+          "queries": 0,
+          "errors": [
+            {
+              "query": "perfume feminino eau de parfum",
+              "code": "BLOCKED",
+              "message": "Amazon pediu verificação ou devolveu página de erro"
+            }
+          ],
+          "stale": 126,
           "tagged": 0
         },
         "mercadolivre": {
